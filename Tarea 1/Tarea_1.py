@@ -13,22 +13,18 @@ max_altura = 0  # Guarda el maximo global
 
 def LIS(Cajas, Pos_anterior):
     global max_altura  # max_altura es global
-
     if Pos_anterior >= len(Cajas):
         return 0
-
     for i in range(Pos_anterior, len(Cajas)):
-        if(Cajas[Pos_anterior][1] > Cajas[i][1]) and (Cajas[Pos_anterior][2] > Cajas[i][2]):
+        if(Cajas[Pos_anterior][1] > Cajas[i][1]) and (Cajas[Pos_anterior][2] > Cajas[i][2]) or (Cajas[Pos_anterior][1] > Cajas[i][2]) and (Cajas[Pos_anterior][2] > Cajas[i][1]):
             altura_con_caja = Cajas[Pos_anterior][0] + LIS(Cajas, i)
             max_altura = max(max_altura, altura_con_caja)
-        elif(Cajas[Pos_anterior][1] < Cajas[i][1]) and (Cajas[Pos_anterior][2] < Cajas[i][2]):
+        elif((Cajas[Pos_anterior][1] < Cajas[i][1]) or (Cajas[Pos_anterior][2] < Cajas[i][2])) and ((Cajas[Pos_anterior][1] < Cajas[i][2]) or (Cajas[Pos_anterior][2] < Cajas[i][1])):
             Cajas2_intercambiadas = [(caja[1], caja[2], caja[0]) for caja in Cajas]
             #print(f"Lista original: {Cajas}    Lista Permutada: {Cajas2_intercambiadas}")
             max_altura2 = LIS(Cajas2_intercambiadas, Pos_anterior + 1)
             max_altura = max(max_altura, max_altura2)  # Actualizar max_altura
-
     max_altura2 = LIS(Cajas, Pos_anterior + 1)
-
     val = max_altura
     max_altura = 0  # Restablecer max_altura para futuras llamadas
     return max(val, max_altura2)
@@ -53,17 +49,17 @@ def DatosCajas(cajitas):
         listaaux = []
         if isinstance(cajitas[i], int): #Se verifica si el elemento de la lista es un entero que representa a la cantidad de tuplas
             num_cajas = cajitas[i]
-            #print(f"Cantidad de Cajas: {num_cajas}")
+            print(f"Cantidad de Cajas: {num_cajas}")
             i += 1
             for j in range(num_cajas):
                 if i < len(cajitas) and isinstance(cajitas[i], tuple): #Se verifica que el elemento en la lista es una tupla
-                    #print(f"Caja {j + 1}: Alto: {cajitas[i][0]}  Ancho: {cajitas[i][1]}  Profundidad: {cajitas[i][2]}") 
+                    print(f"Caja {j + 1}: Alto: {cajitas[i][0]}  Ancho: {cajitas[i][1]}  Profundidad: {cajitas[i][2]}") 
                     listaaux.append(cajitas[i])
                     i += 1
                 else:
                     print("Error")
                     return
-            #print(listaaux)
+            print(listaaux)
             value = LIS(listaaux,0) #Mando la lista a LIS
             print(value)
         else:
