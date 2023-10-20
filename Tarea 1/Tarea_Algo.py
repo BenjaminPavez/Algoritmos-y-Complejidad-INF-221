@@ -101,6 +101,9 @@ def DatosCajas_dinamico(cajitas):
             print("Error 1")
             i += 1
 
+# Empieza desde la segunda caja hasta la ultima caja y encuentra la maxima altura que se puede hacer con
+# las cajas si entra al if mas interno significa que la caja i se puede apilar con la caja j
+
 def AlturaMaxima_progamacion_dinamica(Cajas, memo):
     n = len(Cajas)
     for i in range(1, n):
