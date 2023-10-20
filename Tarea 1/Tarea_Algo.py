@@ -66,5 +66,59 @@ def DatosCajas(cajitas):
             print("Error")
             i += 1
 
+#####
+#####  Nuevas funciones
+#####
+
+def DatosCajas_dinamico(cajitas):
+    i = 0
+    while i < len(cajitas):
+        listaaux = []
+        if isinstance(cajitas[i], int): #Se verifica si el elemento de la lista es un entero que representa a la cantidad de tuplas
+            num_cajas = cajitas[i]
+            print(f"Cantidad de Cajas: {num_cajas}")
+            i += 1
+            for j in range(num_cajas):
+                if i < len(cajitas) and isinstance(cajitas[i], tuple): #Se verifica que el elemento en la lista es una tupla
+                    print(f"Caja {j + 1}: Alto: {cajitas[i][0]}  Ancho: {cajitas[i][1]}  Profundidad: {cajitas[i][2]}") 
+                    listaaux.append(cajitas[i])
+                    i += 1
+                else:
+                    print("Error 2")
+                    return
+            GirarCajas(listaaux)
+            #print("lista         : " + str(listaaux))
+            lista_aux_ord = sorted(listaaux, key =lambda listaaux : listaaux[1] * listaaux [2], reverse=True)  # Se ordena por la base 
+            #print("lista ordenada: " + str(lista_aux_ord))
+            n = len(lista_aux_ord)
+            memo = [0] * n    # Llenamos el arreglo de 0
+            for x in range (n):
+                memo[x] = lista_aux_ord[x][0] # LLenamos cada posicion del arreglo con la altura correspondiente
+            #print(memo)
+            value = AlturaMaxima_progamacion_dinamica(lista_aux_ord, memo) #Mando la lista a AlturaMaxima_progamacion_dinamica
+            print(value)
+        else:
+            print("Error 1")
+            i += 1
+
+def AlturaMaxima_progamacion_dinamica(Cajas, memo):
+    n = len(Cajas)
+    for i in range(1, n):
+        for j in range(i): 
+            if ((Cajas[j][1] > Cajas[i][1]) and (Cajas[j][2] > Cajas[i][2])) or ((Cajas[j][1] > Cajas[i][2]) and (Cajas[j][2] > Cajas[i][1])): #Ancho y profundidad
+                if (memo[i] < memo[j] + Cajas[i][0]):
+                    memo[i] = memo[j] + Cajas[i][0]
+             
+    max = -1
+    for i in range(n):
+        if (max < memo[i]):
+            max = memo[i]
+            
+    return max
+
+
+
+
 Cajas = GuardarCajas('input-1.dat')
 DatosCajas(Cajas)
+DatosCajas_dinamico(Cajas)
