@@ -32,8 +32,15 @@ def GirarCajas(Cajas):
         Cajas.append(Caja)
 
 
-# La funcion GuardarCajas saca la informacion de los archivos input, y los guarda en
-# la variable Cajas
+'''
+La funcion abre el archivo .dat que almacena los datos de entrada y los guarda en una lista de tuplas
+
+    Parametros:
+        nombre_arch (str): String que contiene el nombre del archivo, por defecto sera 'input-1.dat'
+
+    Retorno:
+        Cajas (int): Lista de enteros y tuplas con la Altura, Ancho y Profundida de cada caja
+'''
 
 def GuardarCajas(nombre_arch):
     Cajas = []
