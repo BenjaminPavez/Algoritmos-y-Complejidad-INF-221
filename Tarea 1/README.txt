@@ -8,4 +8,10 @@ Desarrollo:
 
 Instrucciones de uso:
 
-1) El programa funciona correctamente con el archivo de prueba 'input-1.dat'
+1) El programa funciona correctamente con todos los archivos de prueba
+
+2) En el codigo se encuentran comentarios que indican la resolucion del problema 1 y 2
+
+3) Todas las funciones se encuentran comentadas
+
+4) los archivos de prueba se encuentran en la presente carpeta
