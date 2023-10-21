@@ -1,6 +1,3 @@
-# La funcion AlturaMaxima calcula la altura maxima de forma recursiva usando fuerza bruta, es decir prueba
-# todas las soluciones y se queda con la mejor
-
 def AlturaMaxima(Cajas, CajasElegidas):
     altura = 0
     for Caja in Cajas:
@@ -19,7 +16,20 @@ def AlturaMaxima(Cajas, CajasElegidas):
                 altura = max(altura, Caja[0] + AlturaMaxima(newCajas, newCajasElegidas))
     return altura
 
-# La funcion GirarCajas hace que agreguen a las lista Cajas las rotaciones donde el valor de h_i cambia
+"""
+La funcion AlturaMaxima() resuelve por fuerza bruta recursiva el problema de la altura maxima apilando una serie de cajas, esta
+funcion itera por cada una de las Cajas dentro de Cajas, en caso de que la lista CajasElegidas este vacia, realiza una nueva llamada a la funcion
+pero añadiendo la Caja a la lista newCajasElegidas y removiendola de la lista newCajas, en caso de que la lista CajasElegidas no este vacia, verifica que
+la base de la Caja sea mas pequeña que la ultima caja añadida a las CajasElegidas, en caso de que la base sea mas pequeña realiza el mismo procedimiento
+de añadirla a la lista newCajasElegidas y removiendola de la lista newCajas.
+***
+Inputs:
+-Cajas: lista que contiene todas las cajas que pueden ser utilizadas para crear la torre de cajas.
+-CajasElegidas: lista que contiene todas las cajas que ya fueron utilizadas para crear la torre de cajas.
+***
+Return:
+-altura: entero que corresponde a la altura maxima que pudo ser alcanzada apilando las cajas.
+"""
 
 def GirarCajas(Cajas):
     CajasGiradas = []
@@ -31,16 +41,15 @@ def GirarCajas(Cajas):
     for Caja in CajasGiradas:
         Cajas.append(Caja)
 
-
-'''
-La funcion abre el archivo .dat que almacena los datos de entrada y los guarda en una lista de tuplas
-
-    Parametros:
-        nombre_arch (str): String que contiene el nombre del archivo, por defecto sera 'input-1.dat'
-
-    Retorno:
-        Cajas (int): Lista de enteros y tuplas con la Altura, Ancho y Profundida de cada caja
-'''
+"""
+La funcion GirarCajas() recibe la lista inicial de Cajas leidas desde el archivo "input.dat" y le añade a esta lista
+las versiones giradas de cada una de las cajas que nos interesan para el problema.
+***
+Inputs:
+-Cajas: lista que contiene todas las cajas que fueron leidas desde el archivo input.
+***
+-Cajas: lista que contiene todas las cajas que fueron leidas desde el archivo input junto a sus respectivos giros.
+"""
 
 def GuardarCajas(nombre_arch):
     Cajas = []
@@ -57,7 +66,15 @@ def GuardarCajas(nombre_arch):
                 print("Error en la línea:", linea)
     return Cajas
 
-# Va recorriendo sobre los elementos para calcular la altura maxima, version fuerza bruta
+'''
+La funcion abre el archivo .dat que almacena los datos de entrada y los guarda en una lista de tuplas
+
+    Parametros:
+        nombre_arch (str): String que contiene el nombre del archivo, por defecto sera 'input-1.dat'
+
+    Retorno:
+        Cajas (int): Lista de enteros y tuplas con la Altura, Ancho y Profundida de cada caja
+'''
 
 def DatosCajas(cajitas):
     i = 0
@@ -123,13 +140,11 @@ def AlturaMaxima_progamacion_dinamica(Cajas, memo):
         for j in range(i): 
             if ((Cajas[j][1] > Cajas[i][1]) and (Cajas[j][2] > Cajas[i][2])) or ((Cajas[j][1] > Cajas[i][2]) and (Cajas[j][2] > Cajas[i][1])): #Ancho y profundidad
                 if (memo[i] < memo[j] + Cajas[i][0]):
-                    memo[i] = memo[j] + Cajas[i][0]
-             
+                    memo[i] = memo[j] + Cajas[i][0]    
     max = -1
     for i in range(n):
         if (max < memo[i]):
             max = memo[i]
-            
     return max
 
 
