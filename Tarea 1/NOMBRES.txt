@@ -2,7 +2,8 @@ Integrantes:
 Nombre: Ignacio Muñoz Sanchez    Rol: 202173620-4   Par: 200
     - Desarrollo de funcion con programacion dinamica
 
-Nombre: ...    Rol: ...    Par: 200
+Nombre: Benjamin Pavez Ortiz    Rol: 202173628-k    Par: 200
+    - Implementacion de funcion que recibe los datos y calculo de altura maxima para problema 1
 
 
 Nombre: Alessandro Bruno Cintolesi Rodriguez    Rol: 202173541-0   Par: 200
