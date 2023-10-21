@@ -1,6 +1,3 @@
-Nombres, Roles USM y Paralelo: Benjamin Alejandro Pavez Ortiz,  202173628-K,  200
-                               
-
 SO: Windows 10
 
 IDE: Visual Studio Code
