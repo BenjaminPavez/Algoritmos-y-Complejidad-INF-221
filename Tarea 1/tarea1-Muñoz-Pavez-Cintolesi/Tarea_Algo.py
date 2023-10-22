@@ -31,7 +31,8 @@ def AlturaMaxima(Cajas, CajasElegidas):
 
 
 '''
-La funcion GirarCajas recibe la lista inicial de Cajas leidas desde el archivo "input.dat" y le añade a esta lista las versiones giradas de cada una de las cajas que nos interesan para el problema.
+La funcion GirarCajas recibe la lista inicial de Cajas leidas desde el archivo "input.dat" y le añade a esta lista las versiones 
+giradas de cada una de las cajas que nos interesan para el problema.
 
     Parametros:
         Cajas : Lista que contiene todas las cajas que fueron leidas desde el archivo input.
@@ -52,19 +53,19 @@ def GirarCajas(Cajas):
 
 
 '''
-La funcion GuardarCajas recibe la lista inicial de Cajas leidas desde el archivo "input.dat" y le añade a esta lista las versiones giradas de cada una de las cajas que nos interesan para el problema.
+La funcion GuardarCajas recibe el nombre del archivo input, el cual se lee y saca la informacion del numero de cajas y las dimensiones de las cajas.
 
     Parametros:
         nombre_arch : String que contiene el nombre del archivo, por defecto sera 'input-1.dat'
         
     Retorno:
-        Cajas : Lista que contiene todas las cajas que fueron leidas desde el archivo input junto a sus respectivos giros.
+        Cajas : Lista que contiene todas las cajas que fueron leidas desde el archivo input.
 '''
 def GuardarCajas(nombre_arch):
     Cajas = []
     with open(nombre_arch, 'r') as archivo:
         for linea in archivo:
-            linea = linea.strip()  # Elimina los caracteres de espacio en blanco(" "), como saltos de línea y espacios en blanco al principio y al final
+            linea = linea.strip()  # Elimina los caracteres de espacio en blanco (" "), como saltos de línea y espacios en blanco al principio y al final
             if len(linea.split(" ")) == 1:
                 num_cajas = linea.split(" ")
                 Cajas.append(int(num_cajas[0]))
@@ -78,10 +79,11 @@ def GuardarCajas(nombre_arch):
 
 
 '''
-La funcion DatosCajas abre el archivo .dat que almacena los datos de entrada y los guarda en una lista de tuplas
+La funcion DatosCajas va recorriendo sobre la lista cajitas, y va resolviendo los problemas que se lean del input, y calcula
+la altura maxima 
 
     Parametros:
-        cajitas : Lista que contiene todas las cajas
+        cajitas : Lista que contiene todas las cajas leidas del input.
 
     Retorno:
         La funcion no retorna nada
@@ -113,10 +115,11 @@ def DatosCajas(cajitas):
 
 
 '''
-La funcion DatosCajas_dinamico va recorriendo sobre los elementos para calcular la altura maxima, version programacion dinamica
+La funcion DatosCajas_dinamico va recorriendo sobre la lista cajitas, y va resolviendo los problemas que se lean del input, y calcula
+la altura maxima, version programacion dinamica.
 
     Parametros:
-        cajitas : Lista que contiene todas las cajas
+        cajitas : Lista que contiene todas las cajas leidas desde el input.
 
     Retorno:
         La funcion no retorna nada
