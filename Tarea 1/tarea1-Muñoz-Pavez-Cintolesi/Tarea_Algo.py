@@ -1,3 +1,15 @@
+'''
+La funcion AlturaMaxima resuelve por fuerza bruta recursiva el problema de la altura maxima apilando una serie de cajas, esta funcion itera por cada una de las Cajas dentro de Cajas, en caso de que la lista CajasElegidas este vacia, realiza una nueva llamada a la funcion
+pero añadiendo la Caja a la lista newCajasElegidas y removiendola de la lista newCajas, en caso de que la lista CajasElegidas no este vacia, verifica que la base de la Caja sea mas pequeña que la ultima caja añadida a las CajasElegidas, en caso de que la base sea mas pequeña realiza el mismo procedimiento
+de añadirla a la lista newCajasElegidas y removiendola de la lista newCajas.
+
+    Parametros:
+        Cajas : Lista que contiene todas las cajas que pueden ser utilizadas para crear la torre de cajas.
+        CajasElegidas : Lista que contiene todas las cajas que ya fueron utilizadas para crear la torre de cajas.
+
+    Return:
+        altura : Entero que corresponde a la altura maxima que pudo ser alcanzada apilando las cajas.
+'''
 def AlturaMaxima(Cajas, CajasElegidas):
     altura = 0
     for Caja in Cajas:
@@ -16,21 +28,17 @@ def AlturaMaxima(Cajas, CajasElegidas):
                 altura = max(altura, Caja[0] + AlturaMaxima(newCajas, newCajasElegidas))
     return altura
 
-"""
-La funcion AlturaMaxima() resuelve por fuerza bruta recursiva el problema de la altura maxima apilando una serie de cajas, esta
-funcion itera por cada una de las Cajas dentro de Cajas, en caso de que la lista CajasElegidas este vacia, realiza una nueva llamada a la funcion
-pero añadiendo la Caja a la lista newCajasElegidas y removiendola de la lista newCajas, en caso de que la lista CajasElegidas no este vacia, verifica que
-la base de la Caja sea mas pequeña que la ultima caja añadida a las CajasElegidas, en caso de que la base sea mas pequeña realiza el mismo procedimiento
-de añadirla a la lista newCajasElegidas y removiendola de la lista newCajas.
-***
-Inputs:
--Cajas: lista que contiene todas las cajas que pueden ser utilizadas para crear la torre de cajas.
--CajasElegidas: lista que contiene todas las cajas que ya fueron utilizadas para crear la torre de cajas.
-***
-Return:
--altura: entero que corresponde a la altura maxima que pudo ser alcanzada apilando las cajas.
-"""
 
+
+'''
+La funcion GirarCajas recibe la lista inicial de Cajas leidas desde el archivo "input.dat" y le añade a esta lista las versiones giradas de cada una de las cajas que nos interesan para el problema.
+
+    Parametros:
+        Cajas : Lista que contiene todas las cajas que fueron leidas desde el archivo input.
+        
+    Retorno:
+        La funcion no retorna nada
+'''
 def GirarCajas(Cajas):
     CajasGiradas = []
     for i in range(0, len(Cajas)):
@@ -41,16 +49,17 @@ def GirarCajas(Cajas):
     for Caja in CajasGiradas:
         Cajas.append(Caja)
 
-"""
-La funcion GirarCajas() recibe la lista inicial de Cajas leidas desde el archivo "input.dat" y le añade a esta lista
-las versiones giradas de cada una de las cajas que nos interesan para el problema.
-***
-Inputs:
--Cajas: lista que contiene todas las cajas que fueron leidas desde el archivo input.
-***
--Cajas: lista que contiene todas las cajas que fueron leidas desde el archivo input junto a sus respectivos giros.
-"""
 
+
+'''
+La funcion GuardarCajas recibe la lista inicial de Cajas leidas desde el archivo "input.dat" y le añade a esta lista las versiones giradas de cada una de las cajas que nos interesan para el problema.
+
+    Parametros:
+        nombre_arch : String que contiene el nombre del archivo, por defecto sera 'input-1.dat'
+        
+    Retorno:
+        Cajas : Lista que contiene todas las cajas que fueron leidas desde el archivo input junto a sus respectivos giros.
+'''
 def GuardarCajas(nombre_arch):
     Cajas = []
     with open(nombre_arch, 'r') as archivo:
@@ -66,16 +75,17 @@ def GuardarCajas(nombre_arch):
                 print("Error en la línea:", linea)
     return Cajas
 
+
+
 '''
-La funcion abre el archivo .dat que almacena los datos de entrada y los guarda en una lista de tuplas
+La funcion DatosCajas abre el archivo .dat que almacena los datos de entrada y los guarda en una lista de tuplas
 
     Parametros:
-        nombre_arch (str): String que contiene el nombre del archivo, por defecto sera 'input-1.dat'
+        cajitas : Lista que contiene todas las cajas
 
     Retorno:
-        Cajas (int): Lista de enteros y tuplas con la Altura, Ancho y Profundida de cada caja
+        La funcion no retorna nada
 '''
-
 def DatosCajas(cajitas):
     i = 0
     while i < len(cajitas):
@@ -101,8 +111,16 @@ def DatosCajas(cajitas):
             i += 1
 
 
-# Va recorriendo sobre los elementos para calcular la altura maxima, version programacion dinamica
 
+'''
+La funcion DatosCajas_dinamico va recorriendo sobre los elementos para calcular la altura maxima, version programacion dinamica
+
+    Parametros:
+        cajitas : Lista que contiene todas las cajas
+
+    Retorno:
+        La funcion no retorna nada
+'''
 def DatosCajas_dinamico(cajitas):
     i = 0
     while i < len(cajitas):
@@ -131,9 +149,18 @@ def DatosCajas_dinamico(cajitas):
             print("Error 1")
             i += 1
 
-# Empieza desde la segunda caja hasta la ultima caja y encuentra la maxima altura que se puede hacer con
-# las cajas si entra al if mas interno significa que la caja i se puede apilar con la caja j
 
+
+'''
+La funcion AlturaMaxima_progamacion_dinamica empieza desde la segunda caja hasta la ultima caja y encuentra la maxima altura que se puede hacer con las cajas si entra al if mas interno significa que la caja i se puede apilar con la caja j
+
+    Parametros:
+        Cajas : Lista que contiene todas las cajas permutadas
+        memo : Lista que representa la memeria que guarda las cajas cuando se le realizo la permutacion
+
+    Retorno:
+        max : Entero que representa la maxima altura
+'''
 def AlturaMaxima_progamacion_dinamica(Cajas, memo):
     n = len(Cajas)
     for i in range(1, n):
@@ -148,9 +175,10 @@ def AlturaMaxima_progamacion_dinamica(Cajas, memo):
     return max
 
 
-#Para probar la funcion cambie el nombre del parametro de GuardarCajas 
 
-Cajas = GuardarCajas('input-3.dat')
+#Para probar la funcion cambie el nombre del parametro de GuardarCajas 
+Cajas = GuardarCajas('input-1.dat')
+print("Resolucion con Fuerza Bruta Recursiva: ")
 DatosCajas(Cajas)
-print("\n\n")
+print("Resolucion con Programacion Dinamica: ")
 DatosCajas_dinamico(Cajas)
