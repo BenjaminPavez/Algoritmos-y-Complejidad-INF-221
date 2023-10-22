@@ -6,9 +6,13 @@ Version interprete de Python: 3.12.0 64-bit
 
 Desarrollo:
 
-1) El problema 1 y problema 2 funcionan correctamente
+1) El programa funciona correctamente con todos los archivos de prueba
 
-2) Los dos problemas funcionan bien con todos los casos de prueba
+2) En el codigo se encuentran comentarios que indican la resolucion del problema 1 y 2
+
+3) Todas las funciones se encuentran comentadas
+
+4) los archivos de prueba se encuentran en la presente carpeta
 
 Instrucciones de uso:
 
