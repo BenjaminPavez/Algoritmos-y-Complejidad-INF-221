@@ -143,25 +143,28 @@ def DatosCajas_dinamico(cajitas):
             memo = [0] * n    # Llenamos el arreglo de 0's
             for x in range (n):
                 memo[x] = lista_aux_ord[x][0] # LLenamos cada posicion del arreglo con la altura correspondiente
-            value = AlturaMaxima_progamacion_dinamica(lista_aux_ord, memo) #Mando la lista a AlturaMaxima_progamacion_dinamica
+            value = AlturaMaxima_programacion_dinamica(lista_aux_ord, memo) #Mando la lista a AlturaMaxima_programacion_dinamica
             print(value)
         else:
             print("Error 1")
             i += 1
 
 
-
-'''
-La funcion AlturaMaxima_progamacion_dinamica empieza desde la segunda caja hasta la ultima caja y encuentra la maxima altura que se puede hacer con las cajas si entra al if mas interno significa que la caja i se puede apilar con la caja j
+"""
+La funcion AlturaMaxima_programacion_dinamica() resuelve por programacion dinamica el problema de la altura maxima apilando una serie de cajas, esta
+funcion va recorriendo el arreglo, el primer for parte desde la primera caja, y el segundo for parte desde 0 hasta la caja anterior a la actual,
+el primer if verifica que la caja j pueda apilarse debajo de la caja i, luego si entra verifica si la altura que ya tenia el arreglo de memoria
+es menor a la que se va a guardar, si es asi se guarda la nueva altura. Despues se itera sobre la lista memo y se saca el maximo.
 
     Parametros:
-        Cajas : Lista que contiene todas las cajas permutadas
-        memo : Lista que representa la memeria que guarda las cajas cuando se le realizo la permutacion
+        Cajas: lista que contiene todas las cajas que pueden ser utilizadas para crear la torre de cajas.
+        memo: lista que contiene todas las alturas, que pueden ser conseguidas por la respectiva caja.
 
     Retorno:
-        max : Entero que representa la maxima altura
-'''
-def AlturaMaxima_progamacion_dinamica(Cajas, memo):
+        max: entero que corresponde a la altura maxima que pudo ser alcanzada apilando las cajas.
+"""
+
+def AlturaMaxima_programacion_dinamica(Cajas, memo):
     n = len(Cajas)
     for i in range(1, n):
         for j in range(i): 
