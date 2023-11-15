@@ -1,6 +1,6 @@
 Integrantes:
 Nombre: Ignacio Muñoz Sanchez    Rol: 202173620-4   Par: 200
-    - 
+    - Desarrollo algoritmo dividir y conquistar
 
 Nombre: Benjamin Pavez Ortiz    Rol: 202173628-k    Par: 200
     - 
