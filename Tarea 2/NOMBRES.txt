@@ -7,4 +7,4 @@ Nombre: Benjamin Pavez Ortiz    Rol: 202173628-k    Par: 200
 
 
 Nombre: Alessandro Bruno Cintolesi Rodriguez    Rol: 202173541-0   Par: 200
-    - 
+    - Desarrollo de algoritmo dividir y conquistar.
