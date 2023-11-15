@@ -4,8 +4,6 @@ IDE: Visual Studio Code
 
 Version interprete de Python: 3.10.6 64-bit
 
-Desarrollo:
-
 Instrucciones de uso:
 
 1) El programa funciona correctamente con todos los archivos de prueba
