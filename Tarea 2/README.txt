@@ -1,3 +1,7 @@
+Nombres, Roles USM y Paralelo: Diego Morales Arellano, 202073511-5, 200
+                               Benjamin Pavez Ortiz, 202173628-K, 200
+                               Tomas Garreton Matus, 201823565-2, 200
+
 SO: Ubuntu 22.04.1 LTS
 
 IDE: Visual Studio Code
