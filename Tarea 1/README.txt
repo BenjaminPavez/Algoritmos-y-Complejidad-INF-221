@@ -1,6 +1,6 @@
-Nombres, Roles USM y Paralelo: Diego Morales Arellano, 202073511-5, 200
+Nombres, Roles USM y Paralelo: Ignacio Muñoz Sanchez, 202173620-4, 200
                                Benjamin Pavez Ortiz, 202173628-K, 200
-                               Tomas Garreton Matus, 201823565-2, 200
+                               Alessandro Cintolesi Rodriguez, 202173541-0, 200
 
 SO: Windows 10
 
