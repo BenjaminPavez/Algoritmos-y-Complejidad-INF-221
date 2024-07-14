@@ -1,3 +1,7 @@
+Nombres, Roles USM y Paralelo: Diego Morales Arellano, 202073511-5, 200
+                               Benjamin Pavez Ortiz, 202173628-K, 200
+                               Tomas Garreton Matus, 201823565-2, 200
+
 SO: Windows 10
 
 IDE: Visual Studio Code
